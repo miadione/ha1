@@ -104,17 +104,16 @@ public class Calculator {
      * entfernt und der Inhalt fortan als positiv interpretiert.
      */
 
-    //Teilaufgabe 3 erster Bugfix
+    //Teilaufgabe 3: 1.Bugfix
     public void pressNegativeKey() {
         if (screen.equals("0")) {
-            // Wenn "0" auf dem Bildschirm steht, keine Änderung vornehmen
             return;
         }
 
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
-
+// Wenn "0" auf dem Bildschirm steht, keine Änderung vornehmen
     /**
      * Empfängt den Befehl der gedrückten "="-Taste.
      * Wurde zuvor keine Operationstaste gedrückt, passiert nichts.
@@ -124,7 +123,17 @@ public class Calculator {
      * Operation (ggf. inklusive letztem Operand) erneut auf den aktuellen Bildschirminhalt angewandt
      * und das Ergebnis direkt angezeigt.
      */
+
+    //Teilaufgabe 3:  2. Bugfix: wenn = am direkt am Anfang "=" gedrückt wird soll nichts passieren
+
     public void pressEqualsKey() {
+
+        if (latestOperation == null || latestOperation.isEmpty()) {
+            screen = "0";
+            return;
+        }
+// Wenn keine gültige Operation gesetzt wurde, einfach nichts tun
+
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
@@ -132,18 +141,13 @@ public class Calculator {
             case "/" -> latestValue / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
+
         screen = Double.toString(result);
-        if(screen.equals("Infinity")) screen = "Error";
-        if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
-        if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
+
+        if (screen.equals("Infinity")) screen = "Error";
+        if (screen.endsWith(".0")) screen = screen.substring(0, screen.length() - 2);
+        if (screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
     }
-
-
-    //Teilaufgabe 3: Bugfixes
-
-    //1. Fix für testPressNegativeKey
-
-
 
 
 }

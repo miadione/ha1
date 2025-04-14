@@ -131,7 +131,7 @@ class CalculatorTest {
 
 
     @Test
-    @DisplayName("wenn man das istgleich zeichen drückt passiert nichts und es wird 0 ausgegeben")
+    @DisplayName("wenn man das istgleich zeichen direkt drückt passiert nichts und es wird 0 ausgegeben")
     void testPressEqual(){
 
         Calculator calc = new Calculator();
