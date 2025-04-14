@@ -103,9 +103,17 @@ public class Calculator {
      * Zeigt der Bildschirm bereits einen negativen Wert mit führendem Minus an, dann wird dieses
      * entfernt und der Inhalt fortan als positiv interpretiert.
      */
+
+    //Teilaufgabe 3 erster Bugfix
     public void pressNegativeKey() {
+        if (screen.equals("0")) {
+            // Wenn "0" auf dem Bildschirm steht, keine Änderung vornehmen
+            return;
+        }
+
         screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
+
 
     /**
      * Empfängt den Befehl der gedrückten "="-Taste.
@@ -129,4 +137,13 @@ public class Calculator {
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
         if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
     }
+
+
+    //Teilaufgabe 3: Bugfixes
+
+    //1. Fix für testPressNegativeKey
+
+
+
+
 }
