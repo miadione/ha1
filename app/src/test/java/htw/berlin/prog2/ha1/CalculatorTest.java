@@ -103,6 +103,57 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    //Teilaufgabe 2.1
+
+    @Test
+    @DisplayName("wenn Minus drücken dann kommt 0 raus")
+    void testPressNegativeKey(){
+        Calculator calc = new Calculator();
+        calc.pressNegativeKey();
+
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+    //Teilaufgabe 2.2 wenn man Rechner startet und auf = drückt passiert nichts
+
+    @Test
+    @DisplayName("test")
+    void test(){
+
+        Calculator calc = new Calculator();
+
+        calc.pressEqualsKey();
+        System.out.println(calc.readScreen());
+    }
+
+
+    @Test
+    @DisplayName("wenn man das istgleich zeichen drückt passiert nichts und es wird 0 ausgegeben")
+    void testPressEqual(){
+
+        Calculator calc = new Calculator();
+
+        calc.pressEqualsKey();
+
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
+
+
+
+
+
+
+
+
+    }
 
 
 
@@ -115,5 +166,5 @@ class CalculatorTest {
 
 
 
-}
+
 
