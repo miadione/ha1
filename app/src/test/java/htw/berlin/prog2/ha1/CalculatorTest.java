@@ -90,5 +90,30 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName("bei Eingabe der 3, wird auf dem Display auch die 3 angezeigt")
+    void testPressDigitKey (){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(3);
+
+        String expected = "3";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

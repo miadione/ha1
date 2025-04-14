@@ -48,8 +48,7 @@ public class Calculator {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
-    }
-
+    }// alles wird zurückgesetzt
     /**
      * Empfängt den Wert einer gedrückten binären Operationstaste, also eine der vier Operationen
      * Addition, Substraktion, Division, oder Multiplikation, welche zwei Operanden benötigen.
